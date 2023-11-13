@@ -9,7 +9,11 @@ export default {
 
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'serif': "'Cinzel', serif",
+      },
+    }
   },
   plugins: [
     require('flowbite/plugin')

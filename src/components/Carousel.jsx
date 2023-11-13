@@ -1,8 +1,9 @@
-import slide1 from "../assets/home/slide1.jpg"
-import slide2 from "../assets/home/slide2.jpg"
-import slide3 from "../assets/home/slide3.jpg"
-import slide4 from "../assets/home/slide4.jpg"
-import slide5 from "../assets/home/slide5.jpg"
+import slide1 from "../assets/home/01.jpg"
+import slide2 from "../assets/home/02.jpg"
+import slide3 from "../assets/home/03.png"
+import slide4 from "../assets/home/04.jpg"
+import slide5 from "../assets/home/05.png"
+import slide6 from "../assets/home/06.png"
 import "flowbite/dist/flowbite.min.js"
 
 
@@ -26,6 +27,9 @@ const Carousel = () => {
                 </div>
                 <div className="hidden duration-700 ease-in-out" data-carousel-item>
                     <img src={slide5} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+                </div>
+                <div className="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src={slide6} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
                 </div>
             </div>
             <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
