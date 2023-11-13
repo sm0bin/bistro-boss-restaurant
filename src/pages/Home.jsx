@@ -2,6 +2,7 @@ import Carousel from "../components/Carousel";
 import Featured from "../components/Featured";
 import MarketingBanner from "../components/MarketingBanner";
 import OrderOnline from "../components/OrderOnline";
+import Recommended from "../components/Recommended";
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
                 <MarketingBanner></MarketingBanner>
                 <Featured></Featured>
                 <h1 className="font-semibold font-serif text-center bg-gray-800 text-white text-5xl py-24">Call Us: +88 0192345678910</h1>
+                <Recommended></Recommended>
             </div>
 
         </div>
