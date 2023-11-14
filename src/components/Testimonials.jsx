@@ -1,5 +1,5 @@
 import SectionTitle from "./SectionTitle";
-import React, { useRef, useState } from 'react';
+import { useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -7,15 +7,26 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import axios from "axios";
+import quote from "../assets/icon/quote-left.svg"
 
 // import required modules
 import { Navigation } from 'swiper/modules';
+import { Rating, RoundedStar } from '@smastrom/react-rating';
+import '@smastrom/react-rating/style.css';
+
 
 const Testimonials = () => {
     const [loadTestimonial, setLoadTestimonial] = useState([]);
     axios.get("reviews.json").then((res) => {
         setLoadTestimonial(res.data);
     });
+
+
+    const customStyles = {
+        itemShapes: RoundedStar,
+        activeFillColor: '#eab308',
+        inactiveFillColor: '#9ca3af',
+    };
 
     return (
         <div>
@@ -30,13 +41,17 @@ const Testimonials = () => {
                 {
                     loadTestimonial?.map((item, index) => (
                         <SwiperSlide key={index}>
-                            <div className="bg-white rounded-lg shadow-lg py-6">
-                                <div className="flex justify-center items-center mt-4">
-                                    <h3 className="text-lg font-semibold text-gray-700 dark:text-white">{item.name}</h3>
-                                </div>
-                                <div className="flex justify-center items-center mt-2">
-                                    <p className="text-gray-500 dark:text-gray-300 text-center">{item.details}</p>
-                                </div>
+                            <div className="text-center px-28">
+                                <Rating
+                                    className="mx-auto mb-12"
+                                    style={{ maxWidth: 180 }}
+                                    value={item.rating}
+                                    itemStyles={customStyles}
+                                    readOnly
+                                />
+                                <img className="mx-auto mb-10" src={quote} alt="" />
+                                <p className="text-xl mb-4 text-gray-600">{item.details}</p>
+                                <h3 className="font-medium text-3xl text-yellow-500">{item.name}</h3>
                             </div>
                         </SwiperSlide>
                     ))
