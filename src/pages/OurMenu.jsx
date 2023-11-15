@@ -6,17 +6,22 @@ import salad from "../assets/menu/salad-bg.jpg";
 import pizza from "../assets/menu/pizza-bg.jpg";
 import soup from "../assets/menu/soup-bg.jpg";
 import { Helmet } from "react-helmet";
+import SectionTitle from "../components/utilities/SectionTitle";
+import ItemsTable from "../components/utilities/ItemsTable";
+import ButtonPrimary from "../components/utilities/ButtonPrimary";
 
 const OurMenu = () => {
     const loadedMenu = useLoaderData();
     return (
-        <>
+        <div className="space-y-20">
             <Helmet>
                 <title>Bistro Boss Restaurant | Menu</title>
             </Helmet>
             <PageBanner></PageBanner>
-            <div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur incidunt asperiores similique voluptates minus ratione fugiat magni odio. Totam, natus.</p>
+            <div className="my-32">
+                <SectionTitle heading="TODAY'S OFFER" subheading="---Don't miss---"></SectionTitle>
+                <ItemsTable loadedMenu={loadedMenu} itemCategoryName="offered"></ItemsTable>
+                <ButtonPrimary btnText="ORDER YOUR FAVORITE FOOD" />
             </div>
             <MenuItemsSection
                 sectionTitle="Dessert Delights" img={dessert} loadedMenu={loadedMenu} itemCategoryName="dessert"
@@ -35,7 +40,7 @@ const OurMenu = () => {
                 sectionSubTitle="Satisfy your sweet cravings with our exquisite Dessert Collection, a temptation that transcends time. Indulge in decadent creations crafted with passion, ensuring every bite is a journey through flavors that stand the test of centuries."
             ></MenuItemsSection>
 
-        </>
+        </div>
     );
 };
 

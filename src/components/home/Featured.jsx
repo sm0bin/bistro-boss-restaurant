@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import SectionTitle from "./SectionTitle";
+import SectionTitle from "../utilities/SectionTitle";
 import axios from "axios";
 import ButtonPrimary from "../utilities/ButtonPrimary";
 

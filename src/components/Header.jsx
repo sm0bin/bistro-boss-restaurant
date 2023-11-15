@@ -4,7 +4,7 @@ const Header = () => {
     return (
 
 
-        <nav className="bg-black/40 fixed top-0 inset-x-0 z-50 text-white border-gray-200 dark:bg-gray-900">
+        <nav className="bg-black/50 backdrop-blur fixed top-0 inset-x-0 z-50 text-white border-gray-200 dark:bg-gray-900">
             <div className=" flex flex-wrap items-center justify-between mx-auto p-4">
                 <a href="/" className="">
                     <h1 className=" text-4xl text-left font-black whitespace-nowrap dark:text-white font-serif uppercase">BISTRO BOSS</h1>
