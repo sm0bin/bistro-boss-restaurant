@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
-import PageBanner from "../components/ourMenu/PageBanner";
-import MenuItemsSection from "../components/ourMenu/MenuItemsSection";
+import PageBanner from "../components/utilities/PageBanner";
+import MenuItemsSection from "../components/menu/MenuItemsSection";
 import dessert from "../assets/menu/dessert-bg.jpeg";
 import salad from "../assets/menu/salad-bg.jpg";
 import pizza from "../assets/menu/pizza-bg.jpg";
@@ -9,8 +9,9 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import SectionTitle from "../components/utilities/SectionTitle";
 import ItemsTable from "../components/utilities/ItemsTable";
 import ButtonPrimary from "../components/utilities/ButtonPrimary";
+import img from "../assets/title/banner-menu.jpg"
 
-const OurMenu = () => {
+const Menu = () => {
     const loadedMenu = useLoaderData();
     return (
         <HelmetProvider>
@@ -18,7 +19,7 @@ const OurMenu = () => {
                 <Helmet>
                     <title>Bistro Boss Restaurant | Menu</title>
                 </Helmet>
-                <PageBanner></PageBanner>
+                <PageBanner pageTitle="OUR MENU" img={img}></PageBanner>
                 <div className="my-32">
                     <SectionTitle heading="TODAY'S OFFER" subheading="---Don't miss---"></SectionTitle>
                     <ItemsTable loadedMenu={loadedMenu} itemCategoryName="offered"></ItemsTable>
@@ -46,4 +47,4 @@ const OurMenu = () => {
     );
 };
 
-export default OurMenu;
+export default Menu;
