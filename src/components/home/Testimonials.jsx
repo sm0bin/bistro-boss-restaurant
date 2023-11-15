@@ -1,5 +1,5 @@
 import SectionTitle from "../utilities/SectionTitle";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -12,9 +12,11 @@ import '@smastrom/react-rating/style.css';
 
 const Testimonials = () => {
     const [loadTestimonial, setLoadTestimonial] = useState([]);
-    axios.get("reviews.json").then((res) => {
-        setLoadTestimonial(res.data);
-    });
+    useEffect(() => {
+        axios.get("reviews.json").then((res) => {
+            setLoadTestimonial(res.data);
+        });
+    }, []);
 
 
     const customStyles = {
@@ -28,7 +30,7 @@ const Testimonials = () => {
             <SectionTitle heading="TESTIMONIALS" subheading="---What Our Clients Say---"></SectionTitle>
 
             <Swiper
-                loop={true}
+                // loop={true}
                 navigation={true}
                 modules={[Navigation]}
                 className="mySwiper"

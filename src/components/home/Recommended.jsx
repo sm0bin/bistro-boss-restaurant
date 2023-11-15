@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SectionTitle from "../utilities/SectionTitle";
 import axios from "axios";
 
 const Recommended = () => {
     const [loadedMenu, setLoadedMenu] = useState([]);
-    axios.get("menu.json").then(res => setLoadedMenu(res.data))
+    useEffect(() => {
+        axios.get("menu.json").then(res => setLoadedMenu(res.data))
+    }, [])
     return (
         <div>
             <SectionTitle heading="CHEF RECOMMENDS" subheading="---Should Try---"></SectionTitle>
