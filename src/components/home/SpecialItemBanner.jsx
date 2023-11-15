@@ -1,5 +1,5 @@
 
-import featured from "../assets/home/featured.jpg";
+import featured from "../../assets/home/featured.jpg";
 const SpecialItemBanner = () => {
     return (
         <section className="p-32 bg-fixed relative overflow-hidden">

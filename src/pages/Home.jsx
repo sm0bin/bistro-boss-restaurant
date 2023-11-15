@@ -1,15 +1,18 @@
-import Carousel from "../components/Carousel";
-import Featured from "../components/Featured";
-import MarketingBanner from "../components/MarketingBanner";
-import OrderOnline from "../components/OrderOnline";
-import Recommended from "../components/Recommended";
-import SpecialItemBanner from "../components/SpecialItemBanner";
-import Testimonials from "../components/Testimonials";
+import Carousel from "../components/home/Carousel";
+import Featured from "../components/home/Featured";
+import MarketingBanner from "../components/home/MarketingBanner";
+import OrderOnline from "../components/home/OrderOnline";
+import Recommended from "../components/home/Recommended";
+import SpecialItemBanner from "../components/home/SpecialItemBanner";
+import Testimonials from "../components/home/Testimonials";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
     return (
         <div className="space-y-24">
-
+            <Helmet>
+                <title>Bistro Boss Restaurant | Home</title>
+            </Helmet>
             <Carousel></Carousel>
             <div className="max-w-7xl mx-5 md:mx-8 lg:mx-auto space-y-24">
                 <OrderOnline></OrderOnline>

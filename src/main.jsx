@@ -6,6 +6,9 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import App from "./layout/App";
+import OurMenu from "./pages/OurMenu";
+import Home from "./pages/Home";
+import axios from "axios";
 
 const router = createBrowserRouter([
   {
@@ -14,11 +17,12 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <h1>Home</h1>,
+        element: <Home></Home>,
       },
       {
-        path: "/about",
-        element: <h1>About</h1>,
+        path: "/our-menu",
+        element: <OurMenu></OurMenu>,
+        loader: () => axios.get("menu.json").then((res) => res.data),
       },
       {
         path: "/contact",

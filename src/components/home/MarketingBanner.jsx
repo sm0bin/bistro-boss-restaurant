@@ -1,5 +1,5 @@
 
-import img from "../assets/home/chef-service.jpg"
+import img from "../../assets/home/chef-service.jpg"
 const MarketingBanner = () => {
     return (
         <div className="p-28 " style={{ backgroundImage: `url(${img})` }}>

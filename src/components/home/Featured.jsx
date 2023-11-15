@@ -1,21 +1,22 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "./SectionTitle";
 import axios from "axios";
+import ButtonPrimary from "../utilities/ButtonPrimary";
 
 const Featured = () => {
-    const [loadMenu, setLoadMenu] = useState([]);
+    const [loadedMenu, setLoadedMenu] = useState([]);
     useEffect(() => {
         axios.get("menu.json").then((res) => {
-            setLoadMenu(res.data);
+            setLoadedMenu(res.data);
         });
     }, []);
     return (
         <section>
             <SectionTitle heading="FROM OUR MENU" subheading="---Check it out---"></SectionTitle>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-6 mb-14">
 
                 {
-                    loadMenu?.slice(0, 6).map((item, index) => (
+                    loadedMenu?.filter((item) => item.category === "popular").slice(0, 6).map((item, index) => (
                         <div className="flex gap-6" key={index}>
                             <img className="rounded-b-full rounded-tr-full w-28" src={item.image} alt="" />
                             <div>
@@ -30,7 +31,7 @@ const Featured = () => {
                 }
             </div>
 
-            <button className="px-8 py-4 rounded-lg border-b-4 border-gray-800 mt-14 mx-auto block hover:bg-gray-800 hover:text-white hover:border-transparent">View Full  Menu</button>
+            <ButtonPrimary btnText="View Full  Menu" />
 
         </section>
     );

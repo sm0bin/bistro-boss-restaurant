@@ -1,15 +1,10 @@
 import SectionTitle from "./SectionTitle";
 import { useState } from 'react';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import axios from "axios";
-import quote from "../assets/icon/quote-left.svg"
-
-// import required modules
+import quote from "../../assets/icon/quote-left.svg"
 import { Navigation } from 'swiper/modules';
 import { Rating, RoundedStar } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
