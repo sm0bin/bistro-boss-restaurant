@@ -1,13 +1,16 @@
 import img from "../../assets/others/authentication2.png";
 
 const Login = () => {
+
+
+
     return (
-        <div className="flex items-center h-screen justify-center">
+        <div className="flex items-center justify-center">
             <img className="hidden md:block" src={img} alt="" />
 
 
-            <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-                <form className="space-y-6" action="#">
+            <div className="w-full max-w-sm mt-20 p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <form className="space-y-6" onSubmit={handleSubmit}>
                     <h5 className="text-xl font-medium text-gray-900 dark:text-white">Sign in to our platform</h5>
                     <div>
                         <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>

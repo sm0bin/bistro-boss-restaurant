@@ -3,11 +3,11 @@ import Header from "../components/Header";
 
 const Root = () => {
     return (
-        <>
+        <div className="min-h-screen">
             <Header></Header>
             <Outlet></Outlet>
 
-        </>
+        </div>
     );
 };
 
