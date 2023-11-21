@@ -1,4 +1,4 @@
-import Carousel from "../components/home/Carousel";
+import Banner from "../components/home/Banner";
 import Featured from "../components/home/Featured";
 import MarketingBanner from "../components/home/MarketingBanner";
 import OrderOnline from "../components/home/OrderOnline";
@@ -14,7 +14,7 @@ const Home = () => {
                 <Helmet>
                     <title>Bistro Boss Restaurant | Home</title>
                 </Helmet>
-                <Carousel></Carousel>
+                <Banner></Banner>
                 <div className="max-w-7xl mx-5 md:mx-8 lg:mx-auto space-y-24">
                     <OrderOnline></OrderOnline>
                     <MarketingBanner></MarketingBanner>
