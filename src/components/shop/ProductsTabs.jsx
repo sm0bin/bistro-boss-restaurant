@@ -1,51 +1,60 @@
 
-import "flowbite/dist/flowbite.min.js";
+// import "flowbite/dist/flowbite.min.js";
+import { Fragment, useState } from "react";
 import ProductsGrid from "./ProductsGrid";
-import { useLoaderData } from "react-router-dom";
-const ProductsTabs = () => {
-    const loadedMenu = useLoaderData();
+const ProductsTabs = ({ loadedMenu }) => {
+    const [activeTab, setActiveTab] = useState(0);
+    console.log(loadedMenu);
+    // const categoryList = [{ label: 'Tab 1', categoryName: 'salad' }, { label: 'Tab 2', categoryName: 'pizza' }, { label: 'Tab 3', categoryName: 'soup' }, { label: 'Tab 4', categoryName: 'dessert' }, { label: 'Tab 5', categoryName: 'drinks' }];
+    const categoryList = ["salad", "pizza", "soup", "dessert", "drinks"]
+
+    const handleTabChange = (tabIndex) => {
+        setActiveTab(tabIndex);
+    }
     return (
         <section className="max-w-7xl mx-5 md:mx-8 lg:mx-auto mt-32">
 
 
-            <div className="mb-4 border-b border-gray-200 dark:border-gray-700">
-                <ul className="flex justify-center flex-wrap -mb-px text-sm font-medium text-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
-                    <li className="me-2" role="presentation">
-                        <button className="inline-block p-4 border-b-2 rounded-t-lg uppercase" id="salads-tab" data-tabs-target="#salads" type="button" role="tab" aria-controls="salads" aria-selected="false">Salad</button>
-                    </li>
-                    <li className="me-2" role="presentation">
-                        <button className="inline-block p-4 border-b-2 rounded-t-lg uppercase hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="pizza-tab" data-tabs-target="#pizza" type="button" role="tab" aria-controls="pizza" aria-selected="false">pizza</button>
-                    </li>
-                    <li className="me-2" role="presentation">
-                        <button className="inline-block p-4 border-b-2 rounded-t-lg uppercase hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="soups-tab" data-tabs-target="#soups" type="button" role="tab" aria-controls="soups" aria-selected="false">soups</button>
-                    </li>
-                    <li role="presentation">
-                        <button className="inline-block p-4 border-b-2 rounded-t-lg uppercase hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="desserts-tab" data-tabs-target="#desserts" type="button" role="tab" aria-controls="desserts" aria-selected="false">desserts</button>
-                    </li>
-                    <li role="presentation">
-                        <button className="inline-block p-4 border-b-2 rounded-t-lg uppercase hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="drinks-tab" data-tabs-target="#drinks" type="button" role="tab" aria-controls="drinks" aria-selected="false">drinks</button>
-                    </li>
-                </ul>
-            </div>
-            <div id="default-tab-content">
-                <div className="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="salads" role="tabpanel" aria-labelledby="salads-tab">
+            <div role="tablist" className="tabs">
+
+                {
+                    categoryList.map((category, index) => (
+                        <Fragment key={index}>
+                            < input type="radio" name="my_tabs_1" role="tab" className={`tab w-max uppercase ${activeTab === index ? 'text-yellow-500 border-b-2' : ''}`}
+                                aria-label={category}
+                                checked={activeTab === index}
+                                onChange={() => handleTabChange(index)} />
+                            <div role="tabpanel" className="tab-content pt-10">
+                                <ProductsGrid loadedMenu={loadedMenu} itemCategoryName={category} />
+                            </div>
+                        </Fragment>
+                    ))
+                }
+                {/* <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="Tab 1" checked />
+                <div role="tabpanel" className="tab-content p-10">
                     <ProductsGrid loadedMenu={loadedMenu} itemCategoryName="salad" />
                 </div>
-                <div className="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="pizza" role="tabpanel" aria-labelledby="pizza-tab">
+
+                <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="Tab 2" />
+                <div role="tabpanel" className="tab-content p-10">
                     <ProductsGrid loadedMenu={loadedMenu} itemCategoryName="pizza" />
                 </div>
-                <div className="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="soups" role="tabpanel" aria-labelledby="soups-tab">
+
+                <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="Tab 3" />
+                <div role="tabpanel" className="tab-content p-10">
                     <ProductsGrid loadedMenu={loadedMenu} itemCategoryName="soup" />
                 </div>
-                <div className="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="desserts" role="tabpanel" aria-labelledby="desserts-tab">
+                <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="Tab 3" />
+                <div role="tabpanel" className="tab-content p-10">
                     <ProductsGrid loadedMenu={loadedMenu} itemCategoryName="dessert" />
                 </div>
-                <div className="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="drinks" role="tabpanel" aria-labelledby="drinks-tab">
+                <input type="radio" name="my_tabs_1" role="tab" className="tab" aria-label="Tab 3" />
+                <div role="tabpanel" className="tab-content p-10">
                     <ProductsGrid loadedMenu={loadedMenu} itemCategoryName="drinks" />
-                </div>
+                </div> */}
             </div>
 
-        </section>
+        </section >
     );
 };
 

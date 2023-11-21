@@ -39,7 +39,8 @@ const router = createBrowserRouter([
           {
             path: "/shop",
             element: <Shop></Shop>,
-            loader: () => axios.get("menu.json").then((res) => res.data),
+            // loader: () => axios.get("menu.json").then((res) => res.data),
+            loader: () => fetch("menu.json")
           },
           {
             path: "/contact",
