@@ -1,7 +1,7 @@
 
 const ItemsTable = ({ loadedMenu, itemCategoryName }) => {
     return (
-        <div className="grid grid-cols-2 gap-10 mb-14 max-w-7xl mx-5 md:mx-8 lg:mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-14 max-w-7xl mx-5 md:mx-8 lg:mx-auto">
 
             {
                 loadedMenu?.filter((item) => item.category === itemCategoryName).slice(0, 6).map(item => (
