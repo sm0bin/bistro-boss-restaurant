@@ -30,11 +30,11 @@ const AuthProvider = ({ children }) => {
         return signOut(auth);
     }
 
-    const updateUser = (name, imgUrl) => {
+    const updateUser = (name) => {
         setLoading(true);
         return updateProfile(auth.currentUser, {
             displayName: name,
-            photoURL: imgUrl,
+            // photoURL: imgUrl,
         })
     }
 

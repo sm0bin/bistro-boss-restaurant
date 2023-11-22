@@ -33,12 +33,11 @@ const SignUp = () => {
             const user = userCredential.user;
             console.log(user);
             form.reset();
-            // updateUser(value.name, img).then(() => {
-            //     console.log("User updated");
-            // }).catch((error) => {
-            //     console.log(error);
-            // })
-            // ...
+            updateUser(value.name).then(() => {
+                console.log("User updated");
+            }).catch((error) => {
+                console.log(error);
+            })
         }).catch((error) => {
             const errorCode = error.code;
             console.log(errorCode);

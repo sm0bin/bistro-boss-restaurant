@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { useContext } from "react";
 import { toast } from "react-hot-toast";
+import { FaRegUserCircle } from "react-icons/fa";
 
 const Header = () => {
     // const navLinks = [
@@ -13,6 +14,8 @@ const Header = () => {
     //     { label: 'SIGN OUT', path: '/signout' },
     // ];
     const { user, signOutUser } = useContext(AuthContext);
+
+    // const { displayName, email, photoURL } = user || null;
 
     const navLinks = <>
         <li><NavLink to="/">Home</NavLink></li>
@@ -63,10 +66,40 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                {
-                    user ?
-                        <button onClick={handleSignOut} className="btn btn-warning">Sign Out</button> :
-                        <NavLink to="/auth" className="btn btn-warning">Login</NavLink>
+                {user ?
+                    <div className="dropdown dropdown-bottom dropdown-end">
+                        {<label tabIndex={0} className="btn btn-circle btn-ghost text-3xl m-1"><FaRegUserCircle /></label>}
+                        {/* <ul >
+                        <li><a>Item 1</a></li>
+                        <li><a>Item 2</a></li>
+                    </ul> */}
+
+                        <div tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 text-black rounded-box ">
+                            <div className="px-4 py-3 border-b">
+                                <span className="block text-sm text-gray-900 dark:text-white">{user?.displayName || "User"}</span>
+                                <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">{user?.email}</span>
+                            </div>
+                            <ul className="py-2">
+                                <li>
+                                    <a>Dashboard</a>
+                                </li>
+                                <li>
+                                    <a>Settings</a>
+                                </li>
+                                <li>
+                                    <a>Earnings</a>
+                                </li>
+                                <li>
+                                    <button onClick={handleSignOut} className="">Sign out</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    // <button onClick={handleSignOut} className="btn btn-warning">Sign Out</button> 
+                    : <NavLink to="/auth" className="btn btn-warning">Login</NavLink>
+
+
+
                 }
             </div>
         </div>
