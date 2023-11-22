@@ -7,7 +7,7 @@ import ItemsTable from "../utilities/ItemsTable";
 const Featured = () => {
     const [loadedMenu, setLoadedMenu] = useState([]);
     useEffect(() => {
-        axios.get("menu.json").then((res) => {
+        axios.get("http://localhost:5500/menu").then((res) => {
             setLoadedMenu(res.data);
         });
     }, []);

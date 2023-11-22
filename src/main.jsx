@@ -34,13 +34,13 @@ const router = createBrowserRouter([
           {
             path: "/menu",
             element: <Menu></Menu>,
-            loader: () => axios.get("menu.json").then((res) => res.data),
+            loader: () => axios.get("http://localhost:5500/menu").then((res) => res.data),
           },
           {
             path: "/shop",
             element: <Shop></Shop>,
-            // loader: () => axios.get("menu.json").then((res) => res.data),
-            loader: () => fetch("menu.json")
+            // loader: () => axios.get("http://localhost:5500/menu").then((res) => res.data),
+            loader: () => fetch("http://localhost:5500/menu")
           },
           {
             path: "/contact",

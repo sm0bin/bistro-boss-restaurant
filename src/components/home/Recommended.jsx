@@ -6,7 +6,7 @@ import ItemCard from "../utilities/ItemCard";
 const Recommended = () => {
     const [loadedMenu, setLoadedMenu] = useState([]);
     useEffect(() => {
-        axios.get("menu.json").then(res => setLoadedMenu(res.data))
+        axios.get("http://localhost:5500/menu").then(res => setLoadedMenu(res.data))
     }, [])
     return (
         <div>
