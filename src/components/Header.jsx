@@ -22,7 +22,7 @@ const Header = () => {
     return (
 
 
-        <div className="navbar fixed z-50 text-white bg-black/50 backdrop-blur-md">
+        <div className="navbar fixed top-0 inset-x-0 z-50 text-white bg-black/50 backdrop-blur-md">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-warning lg:hidden">
@@ -43,7 +43,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <NavLink to="login" className="btn btn-warning">Login</NavLink>
+                <NavLink to="/auth" className="btn btn-warning">Login</NavLink>
             </div>
         </div>
 
