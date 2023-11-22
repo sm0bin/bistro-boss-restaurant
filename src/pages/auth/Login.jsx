@@ -3,9 +3,13 @@ import img from "../../assets/others/authentication2.png";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-hot-toast";
 import ReCAPTCHA from "react-google-recaptcha";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
     const { signInUser, googleSignIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -18,6 +22,8 @@ const Login = () => {
                 toast.success("User logged in successfully");
 
             }
+            form.reset();
+            navigate(location.state?.from?.pathname || "/", { replace: true });
             // Signed in
             console.log(user);
             // ...

@@ -1,4 +1,7 @@
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
+import { useContext } from "react";
+import { toast } from "react-hot-toast";
 
 const Header = () => {
     // const navLinks = [
@@ -9,6 +12,7 @@ const Header = () => {
     //     { label: 'OUR SHOP', path: '/shop' },
     //     { label: 'SIGN OUT', path: '/signout' },
     // ];
+    const { user, signOutUser } = useContext(AuthContext);
 
     const navLinks = <>
         <li><NavLink to="/">Home</NavLink></li>
@@ -16,8 +20,24 @@ const Header = () => {
         {/* <li><NavLink to="/dashboard">Dashboard</NavLink></li> */}
         <li><NavLink to="/menu">Menu</NavLink></li>
         <li><NavLink to="/shop">Shop</NavLink></li>
-        {/* <li><NavLink to="/signout">Sign Out</NavLink></li> */}
+        {/* {
+            user ?
+                <li><NavLink to="/signout">Sign Out</NavLink></li> :
+                <li><NavLink to="/auth">Sign In</NavLink></li>
+        } */}
     </>
+
+    const handleSignOut = () => {
+        signOutUser()
+            .then(() => {
+                toast.success("User logged out successfully");
+            }).catch((error) => {
+                toast.error(error.message);
+            });
+
+    }
+
+
 
     return (
 
@@ -43,7 +63,11 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <NavLink to="/auth" className="btn btn-warning">Login</NavLink>
+                {
+                    user ?
+                        <button onClick={handleSignOut} className="btn btn-warning">Sign Out</button> :
+                        <NavLink to="/auth" className="btn btn-warning">Login</NavLink>
+                }
             </div>
         </div>
 
